@@ -31,3 +31,10 @@ module.exports = {
         new HtmlWebpackPlugin({ template: './src/index.html' }),
     ]
 }
+
+
+/**
+ * LOADERS: reglas o instrucciones que nos ayudan a procesar archivos para generar nuestra salida
+ * 
+ * PLUGINS: agregan funcionalidad extra, TODO plugin depende de un loader
+ */
