@@ -4,7 +4,7 @@ module.exports = {
 		"commonjs": true,
 		"es2021": true
 	},
-	"extends": "eslint:recommended",
+	"extends": "airbnb",
 	"parserOptions": {
 		"ecmaVersion": "latest"
 	},
@@ -15,10 +15,10 @@ module.exports = {
 		],
 		"linebreak-style": [
 			"error",
-			"unix"
+			"linux"
 		],
 		"quotes": [
-			"error",
+			2,
 			"double"
 		],
 		"semi": [
@@ -26,4 +26,4 @@ module.exports = {
 			"never"
 		]
 	}
-}
+};
