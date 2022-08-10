@@ -24,8 +24,12 @@ module.exports = {
         ],
       },
       {
+        // El orden de los loaders es importante
         test: /\.css/,
-        use: ["css-loader"],
+        use: [
+          "style-loader", // PROCESA estilos en linea
+          "css-loader", // PROCESA estilos en archivos CSS ],
+        ],
       },
     ],
   },
