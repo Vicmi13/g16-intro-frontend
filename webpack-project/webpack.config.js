@@ -25,10 +25,11 @@ module.exports = {
       },
       {
         // El orden de los loaders es importante
-        test: /\.css/,
+        test: /.(css|scss)$/,
         use: [
           "style-loader", // PROCESA estilos en linea
-          "css-loader", // PROCESA estilos en archivos CSS ],
+          "css-loader", // PROCESA estilos en archivos CSS ,
+          "sass-loader", // PROCESA estilas en archivos SASS (SCSS)
         ],
       },
     ],
