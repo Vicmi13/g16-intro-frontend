@@ -18,6 +18,10 @@ class BadgeForm extends Component {
             <label>Username</label>
             <input onChange={this.props.handleChange} type="text" className="form-control" name="username"/>
           </div>
+          <div className="form-group">
+            <label>JobTitle</label>
+            <input onChange={this.props.handleChange} type="text" className="form-control" name="jobTitle"/>
+          </div>
           <button type="submit">Enviar</button>
         </form>
       </div>
