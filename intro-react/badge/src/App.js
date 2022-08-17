@@ -48,7 +48,7 @@ class App extends React.Component {
     //Modificamos el estado
     this.setState({
       form: { 
-        ...this.state,
+        ...this.state.form,
         [e.target.name]: e.target.value
       }
     })
