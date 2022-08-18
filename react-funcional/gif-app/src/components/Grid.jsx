@@ -4,10 +4,10 @@ import Item from './Item'
 const Grid = ({category}) => {
 
   const [images, setImages ] = useState([])
-
+ 
   useEffect(() => {
     getGifs(category)
-  },[])
+  },[category])
 
   const getGifs = async (category) => {
     const url = `https://api.giphy.com/v1/gifs/search?api_key=dEHnNtrWpr7gbzOKfi0yVRQdC5X8uy3g&q=${category}&limit=20`
@@ -32,7 +32,7 @@ const Grid = ({category}) => {
       {images.map(image => (
         <Item key={image.id} {...image}/>
       ))}
-     
+     {test2}
     </div>
   </>)
 }
