@@ -1,9 +1,11 @@
 import { useState, Fragment } from "react";
 import "./App.css";
 import Counter from "./Counter";
+import UserActive from "./UserActive";
 
 function App() {
   const [count, setCount] = useState(3);
+  const [isActive] = useState(true);
 
   const showGreeting = (numb) => {
     // let result = "";
@@ -40,8 +42,11 @@ function App() {
       {showGreeting(18)}
 
       {/* CONDTIONAL RENDERING */}
-      {/*  { validacion && component } */}
+      {/*  { IF () 👉🏽 validacion && component } */}
       {count > 2 && <Counter />}
+
+      {/*  { IF ELSE () 👉🏽 validacion ? TRUE : FALSE  } */}
+      {isActive === true ? <UserActive /> : <h4>Usuario NO activo</h4>}
 
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
