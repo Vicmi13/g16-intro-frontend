@@ -5,6 +5,7 @@ import UserActive from "./UserActive";
 
 function App() {
   const [count, setCount] = useState(3);
+  const [age] = useState(4);
   const [isActive] = useState(true);
 
   const showGreeting = (numb) => {
@@ -46,11 +47,16 @@ function App() {
       {count > 2 && <Counter />}
 
       {/*  { IF ELSE () 👉🏽 validacion ? TRUE : FALSE  } */}
-      {isActive === true ? <UserActive /> : <h4>Usuario NO activo</h4>}
+      {isActive ? <UserActive /> : <h4>Usuario NO activo</h4>}
 
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      {/*  { IF ELSE IF ELSE  👉🏽 validacion ? TRUE : validacion2 ? TRUE2 : FALSE */}
+      {age >= 18 ? (
+        <strong> Eres mayor de edad</strong>
+      ) : age < 18 && age >= 12 ? (
+        <b> Eres un adolescente</b>
+      ) : (
+        <h5>Eres un niño</h5>
+      )}
     </div>
   );
 }
