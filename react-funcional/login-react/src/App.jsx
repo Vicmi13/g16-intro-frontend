@@ -7,14 +7,14 @@ function App() {
   // STEP 1 - SETEAR ESTADOS CON UN VALOR INICIAL
   const [user, setUser] = useState('')
   const [password, setPassword] = useState('')
+  const [isUserLogged, setisUserLogged] = useState(false)
   
   const userHardcoded = 'usuarioG16'
   const passwordHardcoded = 'passw0rd'
-  // Este login harcodeado solamente será exitoso con las siguientes credenciales:
+  const fecha_actual = new Date().toLocaleDateString()
 
   
-  // harcoded == codigo rigido || codigo duro 
-
+  // EXPLICACION harcoded == codigo rigido || codigo duro 
   // usuarioG16 passw0rd ✅
   // usuarioG16 password 🤡
   // usuarioG16 password1 🤡
@@ -30,15 +30,17 @@ function App() {
     setPassword(event.target.value)
   }
 
-  const validateLogin = (userInput, passwordInput) => {
-    if(userInput === user && passwordInput === password) {
-      alert('login exitoso')
-    }
+  const validateLogin = () => {
+    {/* STEP 5 - DEFINIR UN EVENTO PARA VALIDAR LOGIN CON CREDENCIALES HARCODEADAS */}
+    if(user === userHardcoded && password === passwordHardcoded) {
+        {/* STEP 6 - DEFINIR CONDITIONAL RENDERING CON LOGIN EXTIOSO (CREACION DE UN NUEVO  ESTADO) */}
+        setisUserLogged(true)
+      }
+      
   }
 
-
   return (
-    <div className="App">
+    <div className="App" >
 
       {/* STEP 2 - ASOCIAR ESTADOS A VALOR DEL INPUT */}
       {/* STEP 3 - DEFINIR UN EVENTO PARA SETEAR MI ESTADO */}
@@ -46,7 +48,14 @@ function App() {
       
       <input type="password" value={password} name="password"  onChange={handleInputPassword}  />
 
-      <button type="submit">Ingresar</button>
+      <button type="submit" onClick={validateLogin}>Ingresar</button>
+
+
+      {isUserLogged && <span> Usuario loggeado en el día de {fecha_actual} </span>}
+
+     
+
+
     </div>
   )
 }
