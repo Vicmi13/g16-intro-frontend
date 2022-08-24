@@ -1,7 +1,28 @@
-import React from "react";
+import React, {useEffect} from "react";
+import axios from 'axios'
 
 const Home = ({logout}) => {
   const fecha_actual = new Date().toLocaleDateString();
+
+  /**
+   *  IMPLEMENTAR LLAMADA SWAAPI CUANDO SE MONTE EL COMPONENT, UNA SOLA VEZ
+   */
+  
+  useEffect(() => {
+    getStarWarsCharacters()
+    // return () => {
+    //  alert('componente dismount')
+    // }
+  }, [])
+
+  const getStarWarsCharacters = async () => {
+    try {
+      const { data: { results } } = await axios.get('https://swapi.dev/api/people')
+      console.log('result', results)
+    } catch(error) {
+      console.log('error', error)
+    }
+  }
   
   // se deberá ocultar este componente ????? 🤡
 
