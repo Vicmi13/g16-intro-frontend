@@ -1,9 +1,13 @@
 import React, {useEffect, useState} from "react";
 import axios from 'axios'
+import "./Home.css"
+import CharacterDetail from "./CharacterDetail";
 
 const Home = ({logout}) => {
-  const fecha_actual = new Date().toLocaleDateString();
   const [charactersArray, setcharactersArray] = useState([])
+  const [idCharacter, setidCharacter] = useState(0)
+
+  const fecha_actual = new Date().toLocaleDateString();
   /**
    *  IMPLEMENTAR LLAMADA SWAAPI CUANDO SE MONTE EL COMPONENT, UNA SOLA VEZ
    */
@@ -41,22 +45,29 @@ const Home = ({logout}) => {
     logout()
   }
 
+
+  const handleCharacterId = (id) =>setidCharacter(id)
+
+  // POR MEDIO DE UN EVENTO MANDAR EL ID  DE CADA PERSONAJE
+
   return (
-    <div style={{ border: "3px solid #f4f0f0", width: 250, height: 300, borderLeftColor: 'orange' }}>
+    <div style={{ border: "3px solid #f4f0f0", width: 350, height: 'auto', borderLeftColor: 'orange' }}>
       Usuario loggeado en el día de 🤡 {fecha_actual}
 
 
       {/* SINTAXIS TERNARIO condition ? true : false */}
-      {charactersArray.length === 0  ? <h4> Cargando... </h4> : 
-      charactersArray.map(objectInfo => (
-        <h3> Nombre del personaje {objectInfo.name} - altura {objectInfo.height} </h3>
+      {!charactersArray.length ? <h4> Cargando... </h4> : 
+      charactersArray.map((objectInfo, index) => (
+        <h3 className="select" key={index} onClick={() => handleCharacterId(index + 1 )}> Nombre del personaje {objectInfo.name} - altura {objectInfo.height} </h3>
       ))
       }
 
-      
+      {idCharacter > 0 &&  <CharacterDetail id={idCharacter}  />}
 
       {/* STEP 1 DEFINIR EVENTO PARA CERRAR SESION */}
       <button onClick={handleLogout}> Cerrar sesión </button> 
+
+      
 
     </div>
   );

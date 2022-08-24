@@ -92,7 +92,7 @@ function App() {
         </>
       )}
 
-      {isUserLogged && <Home logout={() => setisUserLogged(false)} />}
+      {!isUserLogged && <Home logout={() => setisUserLogged(false)} />}
     </div>
   );
 }
