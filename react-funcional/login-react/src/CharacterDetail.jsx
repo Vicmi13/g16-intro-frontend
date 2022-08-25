@@ -8,7 +8,7 @@ const CharacterDetail = ({id}) => {
 
   return (
     <div style={{ width: 'auto', border: "1px solid #cccccc"}}>
-      <h3> Información detallada del personaje </h3>
+      <h3> Información detallada del personaje {id}</h3>
     
     </div>
   )
