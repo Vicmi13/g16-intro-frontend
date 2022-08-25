@@ -11,23 +11,23 @@ function App() {
   const userHardcoded = "usuarioG16";
   const passwordHardcoded = "passw0rd";
 
-  useEffect(() => {
-    // EJECUTA ESTO
+  // useEffect(() => {
+  //   // EJECUTA ESTO
 
-    //METODOS PARA TRABAJAR CON OBJETOS
-    const objectKeys = Object.keys(credentials)
-    const objectValues = Object.values(credentials)
-    const entries = Object.entries(credentials)
+  //   //METODOS PARA TRABAJAR CON OBJETOS
+  //   const objectKeys = Object.keys(credentials)
+  //   const objectValues = Object.values(credentials)
+  //   const entries = Object.entries(credentials)
 
-    if (objectValues.length !== 0) {
-      console.log('objectKeys', objectKeys)
-      console.log('objectValues', objectValues)
-      // console.log('result keys 🤯', keys)
-      // console.log('result values 🤯', values)
-      console.log('result entries 🤯', entries)
-    }
+  //   if (objectValues.length !== 0) {
+  //     console.log('objectKeys', objectKeys)
+  //     console.log('objectValues', objectValues)
+  //     // console.log('result keys 🤯', keys)
+  //     // console.log('result values 🤯', values)
+  //     console.log('result entries 🤯', entries)
+  //   }
 
-  }, [credentials])
+  // }, [credentials])
   
 
   // EXPLICACION harcoded == codigo rigido || codigo duro
@@ -92,7 +92,7 @@ function App() {
         </>
       )}
 
-      {!isUserLogged && <Home logout={() => setisUserLogged(false)} />}
+      {isUserLogged && <Home logout={() => setisUserLogged(false)} />}
     </div>
   );
 }
