@@ -33,7 +33,7 @@ const CharacterDetail = () => {
       <div>
         <b>Nombre: {infoCharacter.name}</b>
         <ul>
-          {infoCharacter?.films?.length > 0 ? infoCharacter.films.map((value,index) =>{
+          {infoCharacter?.films?.length > 0 ? infoCharacter.films.map((value,index) => {
             return (
                 <li>Film {index + 1 } - {value} </li>
             )
